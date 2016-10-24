@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Rasa');
+
+body {
+  display:flex;
+  min-height:100vh;
+  flex-direction:column;
+  font: 14px "Rasa", serif;
+  text-align:center;
+  flex:1;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+
+}
+
+a {
+  color: #00B7FF;
+}
+
+.btn-large {
+	text-transform: none!important;
+}
