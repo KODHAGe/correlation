@@ -10,7 +10,12 @@ router.get('/', function(req, res, next) {
 router.get('/wb', function(req, res, next) {
 	var wbLinks = scraper.scrapeIndicators();
 	wbLinks.then(function(result){
-		res.render('result', {title:'Here you go', link:result.link, url:result.url});
+		console.log(result);
+		if(result != undefined){
+		  res.render('result', {title:'Here you go', link:result.link, url:result.url});
+		} else {
+			res.render('result', {title:'Sorry, the World Bank seems to be down :('});
+		}
 	})
 });
 

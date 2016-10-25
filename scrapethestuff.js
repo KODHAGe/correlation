@@ -18,7 +18,6 @@ exports.scrapeIndicators = function(){
 					foundLinks.push(obj);
 				}
 				var selector = getRandomInt(0, foundLinks.length);
-				console.log(selector);
 				resolve(foundLinks[selector]);
 			})
 		})
