@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.get('/wb', function(req, res, next) {
 	var wbLinks = scraper.scrapeIndicators();
 	wbLinks.then(function(result){
-		res.render('result', {title:'Result', link:result.link, url:result.url});
+		res.render('result', {title:'Here you go', link:result.link, url:result.url});
 	})
 });
 
