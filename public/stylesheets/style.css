@@ -1,14 +1,37 @@
-@import url('https://fonts.googleapis.com/css?family=Rasa');
+/*@import url('https://fonts.googleapis.com/css?family=Rasa');*/
 
 body {
   display:flex;
   min-height:100vh;
   flex-direction:column;
-  font: 14px "Rasa", serif;
+  font: 14px "calluna", serif;
   text-align:center;
   flex:1;
   align-items: center;
   justify-content: center;
+  background:#FCFCFC;
+}
+
+#app {
+  width:100%;
+  height:100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-large {
+  background-color:#3232ff;
+  width:100%;
+}
+
+.btn-large:hover {
+  background-color:#0000e5;
+}
+
+.btn-large:focus {
+  background-color:#0000e5;
 }
 
 .content {
@@ -16,13 +39,90 @@ body {
 }
 
 footer {
-	color:#ddd;
+	color:#ccc;
+  font-weight: lighter;
+  font-size: 0.8em;
 }
 
 a {
-  color: #00B7FF;
+  color: #3232ff;
+  font-style:italic;
 }
 
 .btn-large {
 	text-transform: none!important;
 }
+
+h1 {
+  font-size:3em;
+  text-align:center;
+  font-weight:600;
+}
+
+.country-1 {
+  color:#3232ff;
+}
+
+.country-2 {
+  color:#ff3232;
+}
+
+.holder{
+  min-width:600px;
+  max-width:800px;
+  margin:auto;
+  padding:20px;
+  text-align:left;
+}
+
+.intro {
+  margin-bottom:20px;
+}
+
+.result-p {
+  text-align:center;
+}
+
+/* CHARTIST STYLE */
+
+.ct-chart {
+      width: 90%;
+    margin: auto;
+}
+
+.ct-grid {
+    stroke: rgba(0,0,0,.7);
+    stroke-width: 1px;
+    stroke-dasharray: 5px;
+}
+
+.ct-horizontal {
+    stroke: rgba(0,0,0,.7);
+    stroke-width: 1px;
+    stroke-dasharray: 0px;
+}
+
+.ct-vertical {
+  height:30px!important;
+}
+
+foreignObject:last-of-type span {
+  height:35px!important;
+}
+
+.ct-label {
+  color:black!important;
+}
+
+.ct-label.ct-horizontal.ct-end {
+    transform: translate(-50%,0);
+    display: block;
+    text-align: center!important;
+}
+
+  .ct-chart .ct-line {stroke-width: 2px;}
+  .ct-series-a .ct-line{stroke:#3232ff;}
+  .ct-series-b .ct-line{stroke:#ff3232;}  
+  .ct-series-a .ct-circle {fill: #3232ff;}
+  .ct-series-b .ct-circle {fill: #ff3232;}
+  .ct-circle {stroke-width: 2;stroke: white;stroke-opacity:1;}

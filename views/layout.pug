@@ -3,13 +3,26 @@ html
   head
     title= title
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css')
+    link(rel='stylesheet' href='//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css')
+    link(rel='stylesheet', href='/stylesheets/chartist-plugin-tooltip.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
-    script(type='text/javascript', src='https://code.jquery.com/jquery-3.1.1.min.js')
+    script(type='text/javascript', src='//code.jquery.com/jquery-3.1.1.min.js')
     script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.17.0/babel.min.js')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.min.js')
+    script(type='text/javascript', src='//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js')
+    script(type='text/javascript', src='/javascripts/chartist-plugin-tooltip.min.js')
+    script(type='text/javascript', src='https://use.typekit.net/arc1acw.js')
+    script. 
+      try{Typekit.load({ async: true });}catch(e){}
     
   body
     block content
 
   footer
-    p 2016 wolfw.xyz
+    p 2016 
+      a(href="http://wolfw.xyz") wolfw.xyz
+      span(class='divide')  | 
+      a(href="https://github.com/") source
