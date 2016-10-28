@@ -1,4 +1,5 @@
-/* 	This used to be only a scraper. Hence the name. Now it does more, like calculates correlations between things.
+/* 	
+		This used to be only a scraper. Hence the name. Now it does more, like calculates correlations between things.
 		Divided into functions, held together by promises, returns two random things that correlate with each other.
 		exports loadTheData for a random correlation and scrapeIndicators for a lit of indicators on the wb site.
 */
@@ -7,6 +8,8 @@ var Xray = require('x-ray');
 var x = Xray();
 var simplestatistics = require('simple-statistics');
 var request = require('superagent');
+
+var correlationSetting = 0.8;
 
 /*
 for bluebehrd
@@ -80,7 +83,7 @@ function getIndicatorsWeb(){
 }
 
 function getData(country, dataset, countries, datasets){
-	console.trace('getData: Getting data from API');
+	console.log('getData: Getting data from API');
 	var set = [];
 	console.log(country, dataset);
 	return new Promise(function(resolve, reject){
@@ -165,7 +168,7 @@ exports.loadTheData = function(url){
 								var set2 = result;
 								var corr = simplestatistics.sampleCorrelation(set1,set2).toFixed(2);
 								console.log(corr);
-								if(corr != null && corr >0.75){
+								if(corr != null && corr > correlationSetting){
 									var allTheData = {'set1': set1, 'country1':sets[1][0], 'country2':sets[1][1], 'dataset1':sets[2][0], 'dataset2':sets[2][1],'set2': set2, 'correlation': corr};
 									resolve(allTheData);
 								} else {

@@ -45,7 +45,7 @@ footer {
 }
 
 a {
-  color: #3232ff;
+  color: #0000e5;
   font-style:italic;
 }
 
@@ -81,6 +81,10 @@ h1 {
 
 .result-p {
   text-align:center;
+}
+
+.result-p a {
+  text-decoration:underline;
 }
 
 /* CHARTIST STYLE */
