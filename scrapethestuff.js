@@ -118,10 +118,10 @@ function getSets(countries,datasets){
 	return new Promise(function(resolve, reject){
 		console.log("getSets: Getting two sets of data");
 		var country1 = countries[getRandomInt(0,countries.length)];
-		var dataset1 = datasets[getRandomInt(1000,datasets.length)];
+		var dataset1 = datasets[getRandomInt(0,datasets.length)];
 		var set1 = getData(country1, dataset1, countries, datasets);
 		var country2 = countries[getRandomInt(0,countries.length)];
-		var dataset2 = datasets[getRandomInt(1000,datasets.length)];
+		var dataset2 = datasets[getRandomInt(0,datasets.length)];
 		var set2 = getData(country2, dataset2, countries, datasets);
 		set1.then(function(){
 			set2.then(function(){

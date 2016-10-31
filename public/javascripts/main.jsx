@@ -31,7 +31,7 @@ var Nextbutton = React.createClass({
         var options = {low:0, fullWidth: true, chartPadding: {right: 40, left:40},lineSmooth: Chartist.Interpolation.cardinal({tension: 0.2})};
         console.log(data);
         var apiurl1 = 'http://api.worldbank.org/countries/'+ret.result.country1+'/indicators/'+ret.result.dataset1+'?format=json';
-        var apiurl2 = 'http://api.worldbank.org/countries/'+ret.result.country2+'/indicators/'+ret.result.dataset1+'?format=json';
+        var apiurl2 = 'http://api.worldbank.org/countries/'+ret.result.country2+'/indicators/'+ret.result.dataset2+'?format=json';
         var link1 = 'http://data.worldbank.org/indicator/'+ret.result.dataset1+'?locations='+ret.result.country1;
         var link2 = 'http://data.worldbank.org/indicator/'+ret.result.dataset2+'?locations='+ret.result.country2;
         $.ajax({
