@@ -7,7 +7,8 @@
 var Xray = require('x-ray');
 var x = Xray();
 var simplestatistics = require('simple-statistics');
-var request = require('superagent');
+//var request = require('superagent');
+var request = require('ajax-request');
 
 var correlationSetting = 0.8;
 
@@ -40,12 +41,24 @@ function getRandomInt(min, max) {
 function getCountries(){
 	var countries = [];
 	return new Promise(function(resolve,reject){
-		request.get('http://api.worldbank.org/countries?format=json&per_page=310').end(function(err,res){
+		request({
+  		url: 'http://api.worldbank.org/countries?format=json&per_page=310',
+  		method: 'GET'
+		}, function(err, res, body) {
+			console.log("res",res);
+			console.log("body",JSON.parse(body))
+			body = JSON.parse(body);
+  		for(var country of body[1]){
+				countries.push(country.id);
+			}
+			resolve(countries);
+		});
+		/*request.get('http://api.worldbank.org/countries?format=json&per_page=310').end(function(err,res){
 		for(var country of res.body[1]){
 			countries.push(country.id);
 		}
 		resolve(countries);
-		});
+		});*/
 	});
 }
 
@@ -87,7 +100,24 @@ function getData(country, dataset, countries, datasets){
 	var set = [];
 	console.log(country, dataset);
 	return new Promise(function(resolve, reject){
-		request.get('http://api.worldbank.org/countries/'+country+'/indicators/'+dataset+'?date=2000:2015&format=json').end(function(err,res){
+		request({
+  		url: 'http://api.worldbank.org/countries/'+country+'/indicators/'+dataset+'?date=2000:2015&format=json',
+  		method: 'GET'
+		}, function(err, res, body) {			
+			console.log("Errors: ", err);
+			body = JSON.parse(body);
+			console.log(body);
+			if(body[1] === null){
+				set.push(null);
+				resolve(set);
+			} else {
+				for(var indicator of body[1]){
+					set.push(indicator.value);
+				}
+				resolve(set);					
+			}
+		});
+		/*request.get('http://api.worldbank.org/countries/'+country+'/indicators/'+dataset+'?date=2000:2015&format=json').end(function(err,res){
 			console.log("Errors: ", err);
 			if(res.body[1] === null){
 				set.push(null);
@@ -98,7 +128,7 @@ function getData(country, dataset, countries, datasets){
 				}
 				resolve(set);					
 			}
-		});
+		});*/
 	})
 }
 
@@ -188,8 +218,14 @@ exports.dataFunnel = function(urltoload){
 	var urltoload = urltoload;
 	console.log("Funnel data from API");
 	return new Promise(function(resolve, reject){
-		request.get(urltoload.url).end(function(err, res){
+		request({
+  		url: urltoload.url,
+  		method: 'GET'
+		}, function(err, res, body) {
+			resolve(JSON.parse(body));
+		});
+		/*request.get(urltoload.url).end(function(err, res){
 			resolve(res.body);
-		})
+		})*/
 	})
 }

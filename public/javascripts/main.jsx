@@ -1,4 +1,4 @@
-var pages = [{title:"Correlation != Causation", text:"Correlation != Causation is an application highlighting the age old rule of never reading too much into the relationship of two graphs without understanding what the graphs represent. It randomly scourges through the World Bank database of indicators until it finds two time series that correlate with a coefficient of 0.8 or more. Simple? Very.", buttontext:"This here button sets off the adventure. Brace yourself, it's going to take a while."}]
+var pages = [{title:"Correlation != Causation", text:"Correlation != Causation is an application highlighting the age old rule of never reading too much into the relationship of two graphs without understanding what the graphs represent. It randomly scourges through the World Bank database of indicators until it finds two time series that correlate with a coefficient of 0.8 or more. Simple? Very.", buttontext:"This here button sets off the adventure. It'll take a while (and theres's no loading screen)."}]
 
 var Intropage = React.createClass({
   render: function() {
