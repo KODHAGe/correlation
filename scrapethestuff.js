@@ -45,39 +45,16 @@ function getCountries(){
   		url: 'http://api.worldbank.org/countries?format=json&per_page=310',
   		method: 'GET'
 		}, function(err, res, body) {
-			console.log("res",res);
-			console.log("body",JSON.parse(body))
 			body = JSON.parse(body);
   		for(var country of body[1]){
 				countries.push(country.id);
 			}
 			resolve(countries);
 		});
-		/*request.get('http://api.worldbank.org/countries?format=json&per_page=310').end(function(err,res){
-		for(var country of res.body[1]){
-			countries.push(country.id);
-		}
-		resolve(countries);
-		});*/
+
 	});
 }
 
-/* 	This gets the indicators directly from the API and returns too many to be useful
-		Hence not in use, use getIndicatorsWeb() instead
-
-function getDatasets(){
-	console.log("getDatasets: ");
-	var datasets = [];
-	return new Promise(function(resolve,reject){
-		request.get('http://api.worldbank.org/indicators?format=json&per_page=3000').end(function(err,res){
-		for(var set of res.body[1]){
-			datasets.push(set.id);
-		}
-		resolve(datasets);
-		});
-	});
-}
-*/
 
 function getIndicatorsWeb(){
 	console.log("getIndicatorsWeb: Scraping indicators from the wb site");
@@ -106,7 +83,6 @@ function getData(country, dataset, countries, datasets){
 		}, function(err, res, body) {			
 			console.log("Errors: ", err);
 			body = JSON.parse(body);
-			console.log(body);
 			if(body[1] === null){
 				set.push(null);
 				resolve(set);
@@ -224,8 +200,6 @@ exports.dataFunnel = function(urltoload){
 		}, function(err, res, body) {
 			resolve(JSON.parse(body));
 		});
-		/*request.get(urltoload.url).end(function(err, res){
-			resolve(res.body);
-		})*/
+
 	})
 }
